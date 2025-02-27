@@ -1,4 +1,5 @@
 import { error } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
 const getPost = async (
 	id: string,
@@ -13,6 +14,6 @@ const getPost = async (
 	return await res.json();
 };
 
-export async function load({ params, fetch }) {
+export const load: PageServerLoad = async ({ params, fetch }) => {
 	return { post: getPost(params.id, fetch) };
-}
+};

@@ -6,7 +6,7 @@
 	{#await data.post then value}
 		<title>{value.title} | My Blog</title>
 	{:catch error}
-		<title>Error | My Blog</title>
+		<title>{error.message} | My Blog</title>
 	{/await}
 </svelte:head>
 
